@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <button onclick="add()">新增</button>
+    <table id="tr">
+    <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>学号</td>
+            <td>成绩</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody id="tr"></tbody>
+</table>
+
+</body>
+<script>
+    var i = 1;
+    function add() {
+        var tr = document.getElementById('tr')
+        var tr1 = document.createElement('tr')
+        tr1.innerHTML = '<td>'+ i++ +'</td><td>zhangsan</td><td>10</td><td>1</td><td><button onClick="del(this)">删除</button></td>'
+        tr.appendChild(tr1)
+    }
+
+    function del(btn) {
+        var table = btn.parentNode.parentNode.parentNode
+        table.removeChild(btn.parentNode.parentNode);
+    }
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

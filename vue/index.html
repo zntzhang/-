@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="add">新增</button>
+        <table id="tr">
+            <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>学号</td>
+                    <td>成绩</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody id="tr" v-for="(item,index) in user" :key="index">
+                <td>{{item.index}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.no}}</td>
+                <td>{{item.score}}</td>
+                <td>
+                    <button v-on:click="del(index)">删除</button>
+                </td>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@2"></script>
+<script>
+    var i = 1;
+    new Vue({
+            el: "#app",
+            data: {
+                user: []
+            },
+            methods: {
+                add() {
+                    let stu = {
+                        index: i++,
+                        name: "zhangsan",
+                        no: 1,
+                        score: 1
+                    }
+                    this.user.push(stu)
+                },
+                
+                // 删除学生
+                del(index) {
+                    this.user.splice(index, 1)
+                }
+            }
+        })
+
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
